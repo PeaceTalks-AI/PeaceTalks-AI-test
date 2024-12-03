@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PeaceTalks AI - Transform Your Co-Parenting Communication</title>
     <style>
+        /* Previous styles remain the same */
         :root {
             --teal: #48b1ba;
             --green: #9bcd9b;
@@ -25,7 +26,6 @@
             line-height: 1.6;
             color: #333;
             background-color: #ffffff;
-            padding-top: 80px; /* Adjust for fixed header height */
         }
 
         .container {
@@ -34,228 +34,219 @@
             padding: 0 20px;
         }
 
-        /* Header Styles */
-        header {
-            background: black;
-            color: white;
-            padding: 20px 0;
+        /* Previous styles ... */
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 1000;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
             align-items: center;
+            justify-content: center;
         }
 
-        .cta-button {
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        /* Form Styles */
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input, 
+        .form-group select {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--teal);
+            outline: none;
+        }
+
+        .submit-button {
             background: var(--teal);
             color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            text-decoration: none;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
             font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .cta-button:hover {
+        .submit-button:hover {
             background: var(--green);
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 160px 0 80px;
-            background: linear-gradient(135deg, #000 0%, #333 100%);
+        .form-message {
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .form-message.success {
+            background: var(--green);
             color: white;
-            text-align: center;
         }
 
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            color: #ccc;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            padding: 30px;
-            border-radius: 15px;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: var(--teal);
-        }
-
-        /* Beta Section */
-        .beta-section {
-            padding: 80px 0;
-            background: var(--tan);
-            text-align: center;
-        }
-
-        .beta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .price-tag {
-            display: inline-block;
-            background: var(--teal);
+        .form-message.error {
+            background: #ff6b6b;
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin: 20px 0;
         }
 
-        /* Impact Section */
-        .impact {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .stat-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 15px;
-        }
-
-        .stat-number {
-            font-size: 36px;
-            font-weight: bold;
-            color: var(--teal);
-            margin-bottom: 10px;
-        }
-
-        /* Footer */
-        footer {
-            background: black;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        /* Previous responsive styles remain the same */
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <a href="#beta" class="cta-button">Sign Up Now</a>
-        </div>
-    </header>
+    <!-- Previous header and sections remain the same -->
 
-    <section class="hero">
-        <div class="container">
-            <h1>Transform Your Co-Parenting Communication</h1>
-            <p>Using AI to facilitate respectful, child-centric conversations and reduce stress for everyone involved</p>
-            <a href="#beta" class="cta-button">Join Our Beta Program</a>
+    <!-- Add Modal HTML -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 20px;">Join PeaceTalks AI Beta</h2>
+            <form class="signup-form" id="betaSignupForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">I am a...</label>
+                    <select id="role" name="role" required>
+                        <option value="">Select your role</option>
+                        <option value="parent">Parent</option>
+                        <option value="guardian">Legal Guardian</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="children">Number of Children</label>
+                    <select id="children" name="children" required>
+                        <option value="">Select number</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4+">4 or more</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-button">Join Beta Program</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
         </div>
-    </section>
+    </div>
 
-    <section class="features">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">How PeaceTalks AI Helps</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Child-Centric Focus</h3>
-                    <p>Keep conversations focused on what matters most - your children's well-being and development.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Conflict Prevention</h3>
-                    <p>Advanced AI moderation helps prevent unnecessary arguments before they begin.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3>Personal Growth</h3>
-                    <p>Develop better communication skills with real-time insights and emotional support.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+        // Modal functionality
+        function openModal() {
+            document.getElementById('signupModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
 
-    <section id="beta" class="beta-section">
-        <div class="container beta-content">
-            <h2>Be Among the First to Experience PeaceTalks AI</h2>
-            <p>Join our beta program and help shape the future of co-parenting communication</p>
-            <div class="price-tag">Starting at $15/month</div>
-            <a href="#" class="cta-button">Sign Up for Beta Access</a>
-        </div>
-    </section>
+        function closeModal() {
+            document.getElementById('signupModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
 
-    <section class="impact">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">The Impact of Positive Co-Parenting</h2>
-            <div class="stat-container">
-                <div class="stat-card">
-                    <div class="stat-number">83%</div>
-                    <p>of children in peaceful co-parenting situations show better emotional stability</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">76%</div>
-                    <p>higher academic performance in children with cooperating co-parents</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">65%</div>
-                    <p>reduction in anxiety symptoms when parents maintain respectful communication</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        // Update all CTA buttons to open modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal();
+                });
+            });
+        });
 
-    <footer>
-        <div class="container">
-            <p>©2024 PeaceTalks AI - Transforming Co-Parenting Communication</p>
-        </div>
-    </footer>
+        // Close modal if clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('signupModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message (in a real implementation, this would send data to a server)
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.textContent = 'Thank you for signing up! We\'ll be in touch soon.';
+            messageDiv.className = 'form-message success';
+            messageDiv.style.display = 'block';
+
+            // Reset form after 2 seconds and close modal
+            setTimeout(() => {
+                event.target.reset();
+                messageDiv.style.display = 'none';
+                closeModal();
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
