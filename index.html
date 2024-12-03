@@ -3,78 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peace Talks AI</title>
+    <title>PeaceTalks AI - Transform Your Co-Parenting Communication</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        :root {
+            --teal: #48b1ba;
+            --green: #9bcd9b;
+            --magenta: #f35095;
+            --orange: #fe5301;
+            --gold: #ffa553;
+            --tan: #ffebc4;
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 0 20px;
         }
-        h1, h2 {
-            color: #2c3e50;
+
+        /* Header Styles */
+        header {
+            background: black;
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--teal);
+        }
+
+        .cta-button {
+            background: var(--teal);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--green);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: white;
             text-align: center;
         }
-        h2 {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
-        p {
-            color: #34495e;
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: #ccc;
         }
-        .contact-info {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 20px;
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
         }
-        .project-list {
-            list-style-type: none;
-            padding: 0;
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
         }
-        .project-list li {
+
+        .feature-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--teal);
+        }
+
+        /* Beta Section */
+        .beta-section {
+            padding: 80px 0;
+            background: var(--tan);
+            text-align: center;
+        }
+
+        .beta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .stat-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--teal);
             margin-bottom: 10px;
-            padding: 10px;
-            background-color: #f8f9fa;
-            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Peace Talks AI</h1>
-        <p>Our mission is to explore how artificial intelligence can contribute to peaceful conflict resolution and international diplomacy.</p>
-        
-        <h2>About Us</h2>
-        <p>We are a dedicated team of researchers, technologists, and peace advocates working at the intersection of artificial intelligence and conflict resolution. Our goal is to leverage AI technology to facilitate better understanding and communication between parties in conflict.</p>
-
-        <h2>Our Approach</h2>
-        <p>We believe in combining cutting-edge AI technology with traditional diplomatic methods to create innovative solutions for peace-building. Our approach focuses on data-driven analysis, natural language processing, and cross-cultural communication enhancement.</p>
-
-        <h2>Current Projects</h2>
-        <ul class="project-list">
-            <li>AI-Powered Mediation Platform</li>
-            <li>Cross-Cultural Communication Analysis</li>
-            <li>Conflict Pattern Recognition System</li>
-            <li>Peace Agreement Language Processing</li>
-        </ul>
-
-        <h2>Contact Information</h2>
-        <div class="contact-info">
-            <p>Email: info@peacetalks-ai.org</p>
-            <p>Location: Global Virtual Office</p>
-            <p>Social Media: @PeaceTalksAI</p>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="/api/placeholder/40/40" alt="Bird of Paradise Logo">
+                <span class="logo-text">PeaceTalks AI</span>
+            </div>
+            <a href="#beta" class="cta-button">Sign Up Now</a>
         </div>
-    </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Your Co-Parenting Communication</h1>
+            <p>Using AI to facilitate respectful, child-centric conversations and reduce stress for everyone involved</p>
+            <a href="#beta" class="cta-button">Join Our Beta Program</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">How PeaceTalks AI Helps</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Child-Centric Focus</h3>
+                    <p>Keep conversations focused on what matters most - your children's well-being and development.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Conflict Prevention</h3>
+                    <p>Advanced AI moderation helps prevent unnecessary arguments before they begin.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Personal Growth</h3>
+                    <p>Develop better communication skills with real-time insights and emotional support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beta" class="beta-section">
+        <div class="container beta-content">
+            <h2>Be Among the First to Experience PeaceTalks AI</h2>
+            <p>Join our beta program and help shape the future of co-parenting communication</p>
+            <div class="price-tag">Starting at $15/month</div>
+            <a href="#" class="cta-button">Sign Up for Beta Access</a>
+        </div>
+    </section>
+
+    <section class="impact">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">The Impact of Positive Co-Parenting</h2>
+            <div class="stat-container">
+                <div class="stat-card">
+                    <div class="stat-number">83%</div>
+                    <p>of children in peaceful co-parenting situations show better emotional stability</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">76%</div>
+                    <p>higher academic performance in children with cooperating co-parents</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">65%</div>
+                    <p>reduction in anxiety symptoms when parents maintain respectful communication</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>©2024 PeaceTalks AI - Transforming Co-Parenting Communication</p>
+        </div>
+    </footer>
 </body>
 </html>
